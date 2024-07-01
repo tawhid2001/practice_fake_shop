@@ -26,19 +26,35 @@
           <a class="navbar-brand" href="users.html">
             <p>User Details</p>
           </a>
-          <a class="navbar-brand" href="login.html">
-            <p>Login</p>
-          </a>
-          <a class="navbar-brand" href="signup.html">
-            <p>Signup</p>
-          </a>
         </div>
       </nav>
     </header>
 
-    <main class="main-container">
-      <div id="category-conatiner" class="category-conatiner p-5 m-3"></div>
-      <div id="product-container" class="product-container row"></div>
+    <main>
+        <div class="login-container">
+            <div class="col-md-6">
+              <h1 class="title mt-5">Please Registration</h1>
+              <form action="" onsubmit="handleLogin(event)">
+                <p id="error" class="text-danger"></p>
+                <input
+                  id="login-username"
+                  type="text"
+                  class="input"
+                  placeholder="username"
+                  value="tawhid1"
+                  required
+                />
+                <input
+                  id="login-password"
+                  type="password"
+                  class="input"
+                  placeholder="password"
+                  value="Ryan@1234"
+                  required
+                />
+                <input type="submit" class="submit-btn" value="Login" />
+                <p><a href="signup.html">go to signup page</a></p>
+              </form>
     </main>
 
     <footer id="footer-con">
@@ -51,6 +67,7 @@
       </div>
     </footer>
     <script src="./app.js"></script>
+    <script src="./auth.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

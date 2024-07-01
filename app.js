@@ -1,5 +1,4 @@
 const loadAllProduct = (category = "") => {
-  document.getElementById("product-container").innerHTML = "";
   const url = category
     ? `https://fakestoreapi.com/products/category/${category}`
     : "https://fakestoreapi.com/products";
@@ -63,11 +62,57 @@ const displayCategoris = (categories) => {
     const div = document.createElement("div");
     div.classList.add("category-card");
     div.innerHTML = `
-            <h5 onclick="loadAllProduct('${category}')">${category}</h5>
+            <h5 onclick="loadAllProduct('${category.replace(/'/g, '%27').replace(/ /g, '%20')}')">${category}</h5>
         `;
     categoryContainer.appendChild(div);
   });
 };
 
+
+const loadAllUsers=()=>{
+  fetch('https://fakestoreapi.com/users')
+            .then((res)=>res.json())
+            .then((data)=>displayAllUsers(data))
+}
+
+const displayAllUsers = (users) => {
+  const userContainer = document.getElementById("user-container");
+  users.forEach((user) => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+          <h3 class="user-name" onclick="loadSingleUser(${user.id})">Name: ${user.name.firstname} ${user.name.lastname}</h3>
+          <p>Username: ${user.username}</p>
+          <p>Email: ${user.email}</p>
+          <p>Phone: ${user.phone}</p>
+      `;
+    userContainer.appendChild(div);
+  });
+};
+
+const loadSingleUser = (userId) => {
+  fetch(`https://fakestoreapi.com/users/${userId}`)
+      .then(res => res.json())
+      .then((data) => {
+          console.log(data);
+          displaySingleUser(data);
+      });
+};
+
+const displaySingleUser = (user) => {
+  const userDetailsContainer = document.getElementById("user-details-container");
+  userDetailsContainer.innerHTML = `
+      <div class="user-details">
+          <h2>Name: ${user.name.firstname} ${user.name.lastname}</h2>
+          <p>Username: ${user.username}</p>
+          <p>Email: ${user.email}</p>
+          <p>Phone: ${user.phone}</p>
+          <p>Address: ${user.address.number} ${user.address.street}, ${user.address.city}, ${user.address.zipcode}</p>
+      </div>
+  `;
+};
+
+
+loadAllUsers();
 loadAllProduct();
 loadAllCategoris();

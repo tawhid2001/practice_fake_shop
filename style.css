@@ -1,3 +1,9 @@
+body{
+    height: 100vh;
+    margin: auto;
+    background-color: rgb(241, 234, 234);
+}
+
 footer{
     background: linear-gradient(rgb(236, 180, 180),rgb(175, 107, 107));
 }
@@ -67,4 +73,60 @@ footer{
     width: 100px;
     color: white;
     text-align: center;
+}
+
+.user-container{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#user-details-container {
+    position: fixed;
+    right: 0;
+    top: 100px;
+    bottom: 500px;
+    width: 300px; 
+    height: 75%;
+    overflow-y: auto; /* To handle overflow if content is too long */
+    background-color: #f9f9f9; /* Optional: Add background color */
+    border-left: 1px solid #ccc; /* Optional: Add border for better visual separation */
+    padding: 20px; /* Optional: Add padding */
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1); /* Optional: Add shadow for better visual separation */
+}
+
+.title{
+    font-size: 44px;
+    color: rgb(24, 32, 32);
+}
+
+.login-container{
+    text-align: center;
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items:center;
+    width:75%;
+    margin: auto;
+    padding: 20px;
+}
+.input{
+    padding: 5px;
+    border: none;
+    margin: 10px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 5px;
+}
+.submit-btn{
+    padding: 15px 25px;
+    width:85%;
+    margin: auto;
+    border: none;
+    background-color: rgb(199, 74, 74);
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
 }
